@@ -1,0 +1,45 @@
+{
+  "name": "styletron-vue",
+  "version": "0.0.0",
+  "description": "Vue bindings for styletron.",
+  "repository": {
+    "url": "egoist/styletron-vue",
+    "type": "git"
+  },
+  "main": "dist/styletron-vue.common.js",
+  "module": "dist/styletron-vue.es.js",
+  "cdn": "dist/styletron-vue.js",
+  "unpkg": "dist/styletron-vue.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest && npm run lint && npm run build",
+    "lint": "xo",
+    "build": "bili --format cjs,umd,es --compress --banner"
+  },
+  "author": "egoist <0x142857@gmail.com>",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "styletron-utils": "^2.5.4"
+  },
+  "devDependencies": {
+    "bili": "^0.16.0-rc.2",
+    "eslint-config-rem": "^3.0.0",
+    "jest-cli": "^20.0.4",
+    "styletron": "^2.5.7",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "extends": "rem",
+    "envs": [
+      "jest"
+    ]
+  },
+  "peerDependencies": {
+    "styletron": "^2.5.7"
+  }
+}
