@@ -12,13 +12,13 @@ function createComponent(tag, stylesArray) {
     render(h, ctx) {
       const resolvedStyle = {}
 
-      Component[STYLETRON_KEY].styles.forEach(style => {
+      for (const style of Component[STYLETRON_KEY].styles) {
         if (typeof style === 'function') {
           assign(resolvedStyle, style(ctx.props, ctx))
         } else if (typeof style === 'object') {
           assign(resolvedStyle, style)
         }
-      })
+      }
 
       const styletronClassName = utils.injectStylePrefixed(
         ctx.parent.$root.$options.styletron,

@@ -10,11 +10,10 @@
   "module": "dist/styletron-vue.es.js",
   "cdn": "dist/styletron-vue.js",
   "unpkg": "dist/styletron-vue.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "test": "jest && npm run lint && npm run build",
+    "test": "npm run lint",
+    "prepublish": "npm run build",
     "lint": "xo",
     "build": "bili --format cjs,umd,es --compress --banner"
   },
@@ -35,9 +34,12 @@
   },
   "xo": {
     "extends": "rem",
-    "envs": [
-      "jest"
-    ]
+    "envs": ["jest"],
+    "ignores": ["example/**", "test/**"],
+    "rules": {
+      "import/prefer-default-export": 0,
+      "guard-for-in": 0
+    }
   },
   "peerDependencies": {
     "styletron": "^2.5.7"
