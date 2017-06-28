@@ -92,6 +92,10 @@ const PinkButton = styled(Button, {
 })
 ```
 
+### Theming
+
+Check out [discussion here](https://github.com/egoist/styletron-vue/issues/2).
+
 ## Contributing
 
 1. Fork it!
