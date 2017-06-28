@@ -41,7 +41,7 @@ Then use `styletron-vue`:
 import { styled } from 'styletron-vue'
 
 const StyledButton = styled('div', {
-  color: pink
+  color: 'pink'
 })
 
 export default {
@@ -59,7 +59,7 @@ export default {
 import { styled } from 'styletron-vue'
 
 const StyledButton = styled('div', {
-  color: pink
+  color: 'pink'
 })
 
 export default {
