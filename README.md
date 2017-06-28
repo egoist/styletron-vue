@@ -10,6 +10,8 @@
 yarn add styletron styletron-vue
 ```
 
+CDN: [UNPKG](https://unpkg.com/styletron-vue/dist/) | [jsDelivr](https://cdn.jsdelivr.net/npm/styletron-vue/dist/)
+
 ## Usage
 
 Bind `styletron` instance to root Vue instance:
