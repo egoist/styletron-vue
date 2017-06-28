@@ -45,6 +45,7 @@ export default function styled(base, styleArg) {
   } else if (typeof base === 'string' || typeof base === 'object') {
     return createComponent(base, [styleArg])
   }
+  throw new Error('`styled` takes either a DOM element name or a component')
 }
 
 function assign(target, source) {
