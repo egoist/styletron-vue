@@ -3,6 +3,23 @@ import Styletron from 'styletron'
 import GitHub from 'vue-github-badge'
 import { styled } from '../src'
 
+const Button = styled('button', props => ({
+  color: 'pink',
+  fontSize: `${props.fontSize}px`,
+  border: '1px solid #e2e2e2',
+  background: 'white',
+  marginRight: '10px',
+  padding: '10px 20px'
+}))
+
+const RedButton = styled(Button, {
+  color: 'red',
+  ':hover': {
+    color: 'white',
+    background: 'red'
+  }
+})
+
 const App = {
   name: 'app',
   data() {
@@ -16,23 +33,6 @@ const App = {
     }
   },
   render() {
-    const Button = styled('button', props => ({
-      color: 'pink',
-      fontSize: `${props.fontSize}px`,
-      border: '1px solid #e2e2e2',
-      background: 'white',
-      marginRight: '10px',
-      padding: '10px 20px'
-    }))
-
-    const RedButton = styled(Button, {
-      color: 'red',
-      ':hover': {
-        color: 'white',
-        background: 'red'
-      }
-    })
-
     return (
       <div>
         <GitHub slug="egoist/styletron-vue" />
@@ -47,6 +47,13 @@ const App = {
         <p>
           <Button fontSize={this.fontSize}>hi</Button>
           <RedButton fontSize={this.fontSize}>move mouse over here</RedButton>
+        </p>
+        <p>
+          Check out the{' '}
+          <a href="https://github.com/egoist/styletron-vue/blob/master/example/index.js">
+            source code
+          </a>{' '}
+          of the example.
         </p>
       </div>
     )

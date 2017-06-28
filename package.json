@@ -36,6 +36,7 @@
     "eslint-config-rem": "^3.0.0",
     "gh-pages": "^1.0.0",
     "jest-cli": "^20.0.4",
+    "poi": "^9.0.4",
     "styletron": "^2.5.7",
     "vue-github-badge": "^1.0.1",
     "xo": "^0.18.0"
