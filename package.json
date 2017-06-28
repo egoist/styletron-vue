@@ -17,7 +17,11 @@
     "test": "npm run lint",
     "prepublish": "npm run build",
     "lint": "xo",
-    "build": "bili --format cjs,umd,es --compress --banner"
+    "build": "bili --format cjs,umd,es --compress --banner",
+    "gh": "gh-pages -d example/dist",
+    "deploy": "npm run build:example && npm run gh",
+    "build:example": "poi build",
+    "example": "poi"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
@@ -30,9 +34,16 @@
   "devDependencies": {
     "bili": "^0.16.0-rc.2",
     "eslint-config-rem": "^3.0.0",
+    "gh-pages": "^1.0.0",
     "jest-cli": "^20.0.4",
     "styletron": "^2.5.7",
+    "vue-github-badge": "^1.0.1",
     "xo": "^0.18.0"
+  },
+  "poi": {
+    "entry": "example/index.js",
+    "dist": "example/dist",
+    "homepage": "/styletron-vue/"
   },
   "xo": {
     "extends": "rem",
