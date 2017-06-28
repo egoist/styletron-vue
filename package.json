@@ -1,6 +1,6 @@
 {
   "name": "styletron-vue",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Vue bindings for styletron.",
   "repository": {
     "url": "egoist/styletron-vue",
@@ -10,7 +10,9 @@
   "module": "dist/styletron-vue.es.js",
   "cdn": "dist/styletron-vue.js",
   "unpkg": "dist/styletron-vue.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "npm run lint",
     "prepublish": "npm run build",
@@ -34,8 +36,13 @@
   },
   "xo": {
     "extends": "rem",
-    "envs": ["jest"],
-    "ignores": ["example/**", "test/**"],
+    "envs": [
+      "jest"
+    ],
+    "ignores": [
+      "example/**",
+      "test/**"
+    ],
     "rules": {
       "import/prefer-default-export": 0,
       "guard-for-in": 0
