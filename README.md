@@ -30,7 +30,7 @@ new Vue({
 
 Then use `styletron-vue`:
 
-<details><summary>in single-file component:</summary><br>
+<details><summary>in single-file component</summary><br>
 
 ```vue
 <template>
@@ -55,7 +55,7 @@ export default {
 ```
 </details>
 
-<details><summary>in component with render function:</summary><br>
+<details><summary>in component with render function</summary><br>
 
 ```js
 import { styled } from 'styletron-vue'
