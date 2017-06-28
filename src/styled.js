@@ -9,6 +9,7 @@ function createComponent(tag, stylesArray) {
       tag,
       styles: stylesArray
     },
+    inject: ['theme'],
     render(h, ctx) {
       const resolvedStyle = {}
 

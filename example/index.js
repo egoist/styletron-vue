@@ -3,8 +3,8 @@ import Styletron from 'styletron'
 import GitHub from 'vue-github-badge'
 import { styled } from '../src'
 
-const Button = styled('button', props => ({
-  color: 'pink',
+const Button = styled('button', (props, ctx) => ({
+  color: ctx.injections.theme === 'green' ? 'green' : 'pink',
   fontSize: `${props.fontSize}px`,
   border: '1px solid #e2e2e2',
   background: 'white',
@@ -26,6 +26,9 @@ const App = {
     return {
       fontSize: 12
     }
+  },
+  provide: {
+    theme: 'green'
   },
   methods: {
     handleFontSize(e) {
