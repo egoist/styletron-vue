@@ -26,13 +26,10 @@ function createComponent(tag, stylesArray) {
         resolvedStyle
       )
 
-      return h(
-        tag,
-        {
-          class: styletronClassName
-        },
-        ctx.children
-      )
+      const data = assign({}, ctx.data)
+      data.class = [ctx.data.class, styletronClassName]
+
+      return h(tag, data, ctx.children)
     }
   }
 
