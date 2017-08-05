@@ -18,7 +18,7 @@
     "prepublish": "npm run build",
     "lint": "xo",
     "build": "npm run build:module && npm run build:browser-dev && npm run build:browser-prod",
-    "build:module": "bili --format cjs,es --env.NODE_ENV development --banner --exports named",
+    "build:module": "bili --format cjs,es --banner --exports named",
     "build:browser-dev": "bili --format umd --env.NODE_ENV development --banner --exports named",
     "build:browser-prod": "bili --format umdCompress --env.NODE_ENV production --banner --exports named",
     "gh": "gh-pages -d example/dist",
