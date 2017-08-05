@@ -21,7 +21,7 @@ function createComponent(tag, stylesArray) {
         }
       }
 
-      const styletron = ctx.injections.styletron || ctx.parent.$styletron || ctx.parent.$root.$options.styletron
+      const styletron = ctx.parent.$styletron || ctx.injections.styletron || ctx.parent.$root.$options.styletron
 
       if (process.env.NODE_ENV === 'development' && !styletron) {
         throw new Error('[styletron-vue] You need to bind styletron instance first!')
