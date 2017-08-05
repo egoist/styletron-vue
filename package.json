@@ -1,6 +1,6 @@
 {
   "name": "styletron-vue",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Vue bindings for styletron.",
   "repository": {
     "url": "egoist/styletron-vue",
