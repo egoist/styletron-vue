@@ -17,11 +17,16 @@ CDN: [UNPKG](https://unpkg.com/styletron-vue/dist/) | [jsDelivr](https://cdn.jsd
 Bind `styletron` instance to root Vue instance:
 
 ```js
+import StyletronVue from 'styletron-vue'
 import Styletron from 'styletron'
 import MyApp from './MyApp.vue'
 
+Vue.use(StyletronVue)
+
 const styletron = new Styletron()
 
+// You can set `styletron` instance in any parent component options
+// Like in the root instance options
 new Vue({
   styletron,
   render: h => h(MyApp)

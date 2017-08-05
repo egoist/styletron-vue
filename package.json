@@ -17,7 +17,10 @@
     "test": "npm run lint",
     "prepublish": "npm run build",
     "lint": "xo",
-    "build": "bili --format cjs,umd,es --compress --banner",
+    "build": "npm run build:module && npm run build:browser-dev && npm run build:browser-prod",
+    "build:module": "bili --format cjs,es --env.NODE_ENV development --banner --exports named",
+    "build:browser-dev": "bili --format umd --env.NODE_ENV development --banner --exports named",
+    "build:browser-prod": "bili --format umdCompress --env.NODE_ENV production --banner --exports named",
     "gh": "gh-pages -d example/dist",
     "deploy": "npm run build:example && npm run gh",
     "build:example": "poi build",
@@ -32,11 +35,11 @@
     "styletron-utils": "^2.5.4"
   },
   "devDependencies": {
-    "bili": "^0.16.0-rc.2",
-    "eslint-config-rem": "^3.0.0",
+    "bili": "^0.17.4",
+    "eslint-config-rem": "^3.2.0",
     "gh-pages": "^1.0.0",
     "jest-cli": "^20.0.4",
-    "poi": "^9.0.4",
+    "poi": "^9.1.12",
     "styletron": "^2.5.7",
     "vue-github-badge": "^1.0.1",
     "xo": "^0.18.0"

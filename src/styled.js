@@ -9,7 +9,7 @@ function createComponent(tag, stylesArray) {
       tag,
       styles: stylesArray
     },
-    inject: ['theme'],
+    inject: ['theme', 'styletron'],
     render(h, ctx) {
       const resolvedStyle = {}
 
@@ -21,8 +21,14 @@ function createComponent(tag, stylesArray) {
         }
       }
 
+      const styletron = ctx.injections.styletron || ctx.parent.$styletron || ctx.parent.$root.$options.styletron
+
+      if (process.env.NODE_ENV === 'development' && !styletron) {
+        throw new Error('[styletron-vue] You need to bind styletron instance first!')
+      }
+
       const styletronClassName = utils.injectStylePrefixed(
-        ctx.parent.$root.$options.styletron,
+        styletron,
         resolvedStyle
       )
 
@@ -43,7 +49,9 @@ export default function styled(base, styleArg) {
   } else if (typeof base === 'string' || typeof base === 'object') {
     return createComponent(base, [styleArg])
   }
-  throw new Error('`styled` takes either a DOM element name or a component')
+  if (process.env.NODE_ENV !== 'production') {
+    throw new Error('`styled` takes either a DOM element name or a component')
+  }
 }
 
 function assign(target, source) {

@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Styletron from 'styletron'
 import GitHub from 'vue-github-badge'
-import { styled } from '../src'
+import Styled, { styled } from '../src'
+
+Vue.use(Styled)
 
 const Button = styled('button', (props, ctx) => ({
   color: ctx.injections.theme === 'green' ? 'green' : 'pink',
@@ -27,6 +29,7 @@ const App = {
       fontSize: 12
     }
   },
+  styletron: new Styletron(),
   provide: {
     theme: 'green'
   },
@@ -65,6 +68,5 @@ const App = {
 
 new Vue({
   el: '#app',
-  styletron: new Styletron(),
   render: h => h(App)
 })
