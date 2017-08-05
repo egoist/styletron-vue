@@ -9,7 +9,7 @@ function createComponent(tag, stylesArray) {
       tag,
       styles: stylesArray
     },
-    inject: ['theme'],
+    inject: ['theme', 'styletron'],
     render(h, ctx) {
       const resolvedStyle = {}
 
@@ -22,7 +22,7 @@ function createComponent(tag, stylesArray) {
       }
 
       const styletronClassName = utils.injectStylePrefixed(
-        ctx.parent.$root.$options.styletron,
+        ctx.parent.$root.$options.styletron || ctx.injections.styletron,
         resolvedStyle
       )
 
