@@ -9,7 +9,14 @@ function createComponent(tag, stylesArray) {
       tag,
       styles: stylesArray
     },
-    inject: ['theme', 'styletron'],
+    inject: {
+      theme: {
+        default: null
+      },
+      styletron: {
+        default: null
+      }
+    },
     render(h, ctx) {
       const resolvedStyle = {}
 
