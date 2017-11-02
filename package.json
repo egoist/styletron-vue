@@ -32,6 +32,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
+    "nano-assign": "^1.0.0",
     "styletron-utils": "^2.5.4"
   },
   "devDependencies": {

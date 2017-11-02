@@ -1,4 +1,5 @@
 import utils from 'styletron-utils'
+import assign from 'nano-assign'
 
 const STYLETRON_KEY = '__STYLETRON'
 
@@ -41,7 +42,7 @@ function createComponent(tag, stylesArray) {
 
       const className = [ctx.data.class, styletronClassName]
 
-      return h(tag, { class: className }, ctx.children)
+      return h(tag, assign({}, ctx.data, { class: className, attrs: null }), ctx.children)
     }
   }
 
@@ -58,11 +59,4 @@ export default function styled(base, styleArg) {
   if (process.env.NODE_ENV !== 'production') {
     throw new Error('`styled` takes either a DOM element name or a component')
   }
-}
-
-function assign(target, source) {
-  for (const key in source) {
-    target[key] = source[key]
-  }
-  return target
 }

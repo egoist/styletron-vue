@@ -51,7 +51,7 @@ const App = {
           />
         </label>
         <p>
-          <Button fontSize={this.fontSize}>hi</Button>
+          <Button onClick={() => alert('123')} fontSize={this.fontSize}>hi</Button>
           <RedButton fontSize={this.fontSize}>move mouse over here</RedButton>
         </p>
         <p>
