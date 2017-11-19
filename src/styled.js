@@ -3,7 +3,7 @@ import assign from 'nano-assign'
 
 const STYLETRON_KEY = '__STYLETRON'
 
-function createComponent(tag, stylesArray) {
+function createComponent(tag, stylesArray, { props }) {
   const Component = {
     functional: true,
     [STYLETRON_KEY]: {
@@ -41,8 +41,17 @@ function createComponent(tag, stylesArray) {
       )
 
       const className = [ctx.data.class, styletronClassName]
-
-      return h(tag, assign({}, ctx.data, { class: className, attrs: null }), ctx.children)
+      
+      // transform attrs to props if exposed
+      const exposedProps = props.reduce((result, key) => {
+        const attr = ctx.data.attrs[key]
+        const newResult = assign({}, result)
+        if (attr) newResult[key] = attr
+        return newResult
+      }, {})
+      const mergedProps = assign({}, ctx.data.props, exposedProps)
+      
+      return h(tag, assign({}, ctx.data, { class: className, attrs: null, props: mergedProps }), ctx.children)
     }
   }
 
