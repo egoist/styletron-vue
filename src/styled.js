@@ -54,7 +54,7 @@ function createComponent(tag, stylesArray, props) {
 
       const className = [ctx.data.class, styletronClassName]
 
-      return h(tag, assign({}, ctx.data, { class: className }), ctx.children)
+      return h(tag, assign({}, ctx.data, { class: className, props: ctx.props }), ctx.children)
     }
   }
 
