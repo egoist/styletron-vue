@@ -107,6 +107,34 @@ const PinkButton = styled(Button, props => ({
 
 Check out [discussion here](https://github.com/egoist/styletron-vue/issues/2).
 
+## API
+
+### styled(tag, styles, [props])
+
+#### tag
+
+Type: `string` `object`
+
+String or component object.
+
+#### styles
+
+Type: `object` `function`
+
+```js
+// props: component props
+// ctx: `ctx` of this functional component
+styled(tag, (props, ctx) => ({}))
+```
+
+When you're accessing `props`, you actually have to provide the third arg: [props](#props).
+
+#### props
+
+Type: `Array` `object`
+
+Prop validation.
+
 ## Contributing
 
 1. Fork it!
