@@ -82,19 +82,25 @@ export default {
 ```js
 styled('div', props => ({
   color: props.dark ? '#000' : '#fff'
-}))
+}), ['dark']) // Specify the `props` as the third arg
+
+// You can do any prop validation here, see:
+// https://vuejs.org/v2/guide/components.html#Prop-Validation
+// It's required if you want to access props
 ```
 
 ### Styled Component
 
 ```js
-const Button = styled('button', {
-  color: 'red'
-})
+const Button = styled('button', props => ({
+  color: props.dark ? 'darkred' : 'red'
+}), ['dark'])
 
-const PinkButton = styled(Button, {
-  color: 'pink'
-})
+const PinkButton = styled(Button, props => ({
+  color: props.dark ? 'darkpink' : 'pink'
+}))
+// Props will also be inherited
+// So you don't need to define it again
 ```
 
 ### Theming
