@@ -12,7 +12,7 @@ const Button = styled('button', (props, ctx) => ({
   background: 'white',
   marginRight: '10px',
   padding: '10px 20px'
-}))
+}), ['fontSize'])
 
 const RedButton = styled(Button, {
   color: 'red',
@@ -20,6 +20,10 @@ const RedButton = styled(Button, {
     color: 'white',
     background: 'red'
   }
+})
+
+const StyledAnchor = styled('a', {
+  color: 'pink'
 })
 
 const App = {
@@ -56,9 +60,9 @@ const App = {
         </p>
         <p>
           Check out the{' '}
-          <a href="https://github.com/egoist/styletron-vue/blob/master/example/index.js">
+          <StyledAnchor href="https://github.com/egoist/styletron-vue/blob/master/example/index.js">
             source code
-          </a>{' '}
+          </StyledAnchor>{' '}
           of the example.
         </p>
       </div>
