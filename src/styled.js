@@ -34,7 +34,7 @@ function createComponent(tag, stylesArray, props) {
       const resolvedStyle = {}
 
       for (let i = 0; i < Component[STYLETRON_KEY].styles.length; i++) {
-        const style = Component[STYLETRON_KEY][i]
+        const style = Component[STYLETRON_KEY].styles[i]
         if (typeof style === 'function') {
           assign(resolvedStyle, style(ctx.props, ctx))
         } else if (typeof style === 'object') {
