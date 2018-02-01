@@ -1,4 +1,4 @@
-import utils from 'styletron-utils'
+import { injectStylePrefixed } from 'styletron-utils'
 import assign from 'nano-assign'
 
 const STYLETRON_KEY = '__STYLETRON'
@@ -33,7 +33,8 @@ function createComponent(tag, stylesArray, props) {
     render(h, ctx) {
       const resolvedStyle = {}
 
-      for (const style of Component[STYLETRON_KEY].styles) {
+      for (let i = 0; i < Component[STYLETRON_KEY].styles.length; i++) {
+        const style = Component[STYLETRON_KEY][i]
         if (typeof style === 'function') {
           assign(resolvedStyle, style(ctx.props, ctx))
         } else if (typeof style === 'object') {
@@ -41,20 +42,23 @@ function createComponent(tag, stylesArray, props) {
         }
       }
 
-      const styletron = ctx.parent.$styletron || ctx.injections.styletron || ctx.parent.$root.$options.styletron
+      const styletron = ctx.parent.$styletron || ctx.injections.styletron
 
       if (process.env.NODE_ENV === 'development' && !styletron) {
-        throw new Error('[styletron-vue] You need to bind styletron instance first!')
+        throw new Error(
+          '[styletron-vue] You need to bind styletron instance first!'
+        )
       }
 
-      const styletronClassName = utils.injectStylePrefixed(
-        styletron,
-        resolvedStyle
-      )
+      const styletronClassName = injectStylePrefixed(styletron, resolvedStyle)
 
       const className = [ctx.data.class, styletronClassName]
 
-      return h(tag, assign({}, ctx.data, { class: className, props: ctx.props }), ctx.children)
+      return h(
+        tag,
+        assign({}, ctx.data, { class: className, props: ctx.props }),
+        ctx.children
+      )
     }
   }
 

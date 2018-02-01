@@ -6,21 +6,17 @@
     "url": "egoist/styletron-vue",
     "type": "git"
   },
-  "main": "dist/styletron-vue.common.js",
+  "main": "dist/styletron-vue.cjs.js",
   "module": "dist/styletron-vue.es.js",
   "cdn": "dist/styletron-vue.js",
   "unpkg": "dist/styletron-vue.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "test": "npm run lint",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "xo",
-    "build": "npm run build:module && npm run build:browser-dev && npm run build:browser-prod",
-    "build:module": "bili --format cjs,es --banner --exports named",
-    "build:browser-dev": "bili --format umd --env.NODE_ENV development --banner --exports named",
-    "build:browser-prod": "bili --format umdCompress --env.NODE_ENV production --banner --exports named",
+    "build":
+      "bili --format cjs,es,umd,umd-min --moduleName Styletron --js babel --banner --exports named",
     "gh": "gh-pages -d example/dist",
     "deploy": "npm run build:example && npm run gh",
     "build:example": "poi build",
@@ -33,15 +29,15 @@
   },
   "dependencies": {
     "nano-assign": "^1.0.0",
-    "styletron-utils": "^2.5.4"
+    "styletron-utils": "^3.0.4"
   },
   "devDependencies": {
-    "bili": "^0.17.4",
+    "bili": "^2.2.6",
     "eslint-config-rem": "^3.2.0",
     "gh-pages": "^1.0.0",
     "jest-cli": "^20.0.4",
     "poi": "^9.1.12",
-    "styletron": "^2.5.7",
+    "styletron": "^3.0.4",
     "vue-github-badge": "^1.0.1",
     "xo": "^0.18.0"
   },
@@ -52,19 +48,14 @@
   },
   "xo": {
     "extends": "rem",
-    "envs": [
-      "jest"
-    ],
-    "ignores": [
-      "example/**",
-      "test/**"
-    ],
+    "envs": ["jest"],
+    "ignores": ["example/**", "test/**"],
     "rules": {
       "import/prefer-default-export": 0,
       "guard-for-in": 0
     }
   },
   "peerDependencies": {
-    "styletron": "^2.5.7"
+    "styletron": "^3.0.4"
   }
 }
